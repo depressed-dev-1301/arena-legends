@@ -1,53 +1,102 @@
-1. Purpose of the Program
-- Explain that this is a simple combat simulation built to demonstrate 3 OOP principles:
-- Abstraction → shared base class Character
-- Polymorphism → calling attack() or useAbility() on Character runs subclass logic
-- Inheritance → Warrior and Mage inherit from Character
+# **Arena Legends**
 
-2. Class Breakdown
-- Character.java
-  - Abstract class
-  - Holds shared fields: name, maxHealth, health
-  - Contains abstract methods:
-    - attack(Character target)
-    - useAbility()
+*A beginner-friendly Object-Oriented Programming (OOP) project demonstrating the four pillars of OOP through a simple text-based arena battle game.*
 
-- Warrior.java
-  - Has sword attack
-  - Ability: rage mode
+---
 
-- Mage.java
-  - Has fireball attack
-  - Ability: heal
+## **📌 Overview**
 
-- Game.java
-  - Creates objects
-  - Demonstrates polymorphism using Character hero1 = conan;
-  - Runs attack + ability tests
- 
-3. Known Issues / Fixes
+**Arena Legends** is a console-based game where players choose a character class—such as **Warrior** or **Mage**—and battle opponents using different attacks and abilities.
+The project is designed to help beginners understand how OOP works in practice using Java.
 
-⚠️ had yellow underline on
-this.health = health;
-Because health does not exist in the constructor parameters — so you're assigning the variable to itself (which is meaningless).
+This project showcases all **four pillars of Object-Oriented Programming**:
 
-Correct version:
-this.health = maxHealth;
-Meaning: when creating a new character, they start with full HP.
+1. **Encapsulation** – Each class manages its own data and behavior.
+2. **Inheritance** – Character classes inherit from a shared `Character` superclass.
+3. **Polymorphism** – Different characters implement attacks in unique ways.
+4. **Abstraction** – Common behaviors are defined in abstract or base classes.
 
-⛔ had red underline one
-System.out.println(this.name + " lunges with a sword!");
-System.out.println(this.name + " conjures a fireball!");
-Because a subclass cannot access private fields of it's parent class. Private = only visible to inside that exact class file. (dumbass)
+---
 
-Correct Version:
-in Character.java
-public String getName() {
-    return name;
-}
+## **🎮 Gameplay Summary**
 
-Then in Warrior and Mage:
-System.out.println(getName() + " lunges with a sword!");
-System.out.println(getName() + " conjures a fireball!");
+* You select a character class.
+* Each class has:
 
-Disclaimer: The readme is also my list of mistakes, so please excuse my self-deprecation.
+  * Base stats (HP, attack power, etc.)
+  * Special attack variations
+* You battle an opponent in turn-based combat.
+* The game continues until one combatant’s HP reaches zero.
+
+---
+
+## **📁 Project Structure**
+
+```
+arena-legends/
+└── src/
+    ├── Character.java   // Base class with core attributes & methods
+    ├── Warrior.java     // Subclass with Warrior-specific attacks
+    ├── Mage.java        // Subclass with Mage-specific attacks
+    ├── Game.java        // Game loop & user interaction
+```
+
+---
+
+## **🧠 OOP Concepts Demonstrated**
+
+### **Encapsulation**
+
+Attributes like health, attack power, and name are kept private within the `Character` class, accessible through getters/setters or methods.
+
+### **Inheritance**
+
+`Warrior` and `Mage` extend the `Character` base class and inherit its fields and functions.
+
+### **Polymorphism**
+
+Each character overrides attack behaviors.
+Example:
+
+* Warrior might have a stronger physical strike
+* Mage might have elemental magic attacks
+
+### **Abstraction**
+
+The base class `Character` provides a shared template so subclasses only need to implement what makes them unique.
+
+---
+
+## **🚀 How to Run**
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/depressed-dev-1301/arena-legends.git
+   ```
+2. Navigate to the `src` folder.
+3. Compile the Java files:
+
+   ```bash
+   javac *.java
+   ```
+4. Run the game:
+
+   ```bash
+   java Game
+   ```
+
+---
+
+## **📘 Learning Purpose**
+
+This project is intentionally simple.
+It’s designed primarily for:
+
+* Practicing Java basics
+* Understanding OOP foundations
+* Seeing how multiple classes interact
+* Learning code organization in a small project
+
+Perfect for beginners learning Java OOP. 
+(me, i'm the beginner. Join my suffering as i debug and update my own project.)
