@@ -99,4 +99,6 @@ It’s designed primarily for:
 * Learning code organization in a small project
 
 Perfect for beginners learning Java OOP. 
+
+
 (me, i'm the beginner. Join my suffering as i debug and update my own project.)
